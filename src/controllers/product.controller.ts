@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import ProductService from '../services/product.service';
 
-class BooksController {
+class ProductController {
   constructor(private productService = new ProductService()) { }
 
   public create = async (req: Request, res: Response) => {
@@ -10,6 +10,11 @@ class BooksController {
     const productCreated = await this.productService.create(product);
     res.status(201).json(productCreated);
   };
+
+  public getAll = async (_req: Request, res: Response) => {
+    const books = await this.productService.getAll();
+    res.status(200).json(books);
+  };
 }
 
-export default BooksController;
+export default ProductController;

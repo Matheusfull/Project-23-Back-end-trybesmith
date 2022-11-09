@@ -2,16 +2,21 @@ import connection from '../models/connection';
 import ProductModel from '../models/product.model';
 import IProduct from '../interfaces/product.interface';
 
-class BookService {
+class ProductService {
   public model: ProductModel;
 
   constructor() {
     this.model = new ProductModel(connection);
   }
 
-  public create(book: IProduct): Promise<IProduct> {
-    return this.model.create(book);
+  public create(product: IProduct): Promise<IProduct> {
+    return this.model.create(product);
+  }
+
+  public async getAll(): Promise<IProduct[]> {
+    const products = await this.model.getAll();
+    return products;
   }
 }
 
-export default BookService;
+export default ProductService;
