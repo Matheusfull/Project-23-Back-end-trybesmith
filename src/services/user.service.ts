@@ -12,6 +12,15 @@ class UserService {
   public create(user: IUser): Promise<IUser> {
     return this.model.create(user);
   }
+
+  public getByUsernameService(username: string) {
+    return this.model.getByUsername(username);
+  }
 }
 
 export default UserService;
+
+/*
+Requisito 3
+- Mesmo raciocínio da service de products
+*/

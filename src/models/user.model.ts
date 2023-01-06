@@ -20,4 +20,17 @@ export default class UserModel {
     const { insertId } = dataInserted;
     return { id: insertId, ...user };
   }
+
+  public async getByUsername(username: string): Promise<IUser[]> {
+    const result = await this.connection
+      .execute('SELECT * FROM Trybesmith.Users WHERE username=?', [username]);
+    const [rows] = result;
+    // console.log(rows);
+    return rows as IUser[];
+  }
 }
+
+/*
+Requisito 3
+Não haverá muita mudança. A mesma coisa que fizemos na model de produtos, vamos fazer aqui na de usuários.
+*/

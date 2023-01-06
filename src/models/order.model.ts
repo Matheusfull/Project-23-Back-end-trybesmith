@@ -20,3 +20,8 @@ export default class OrderModel {
     return rows as IOrder[];
   }
 }
+
+/*
+Requisito 4
+Agora é tudo muito igual, portanto não adianta ficar comentado o que já foi comentado no requsito 1. Agora é só replicar e trocar a query.
+*/
